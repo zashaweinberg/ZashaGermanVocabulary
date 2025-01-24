@@ -1,6 +1,6 @@
 
 # under WSL2
-#  python3 /c/zasha/code/ZashaGermanVocabulary/ProcessDeutschWoerter.py --url "https://raw.githubusercontent.com/zashaweinberg/ZashaGermanVocabulary/refs/heads/main/deutsch-woerter.html" /c/zasha/work/zasha/Deutsche-Klasse/Deutsche-Woerter.docx /c/zasha/code/ZashaGermanVocabulary/deutsch-woerter.tsv /c/zasha/code/ZashaGermanVocabulary/deutsch-woerter.html
+#  python3 /c/zasha/code/ZashaGermanVocabulary/ProcessDeutschWoerter.py --url https://zashaweinberg.github.io/ZashaGermanVocabulary/deutsch-woerter.html /c/zasha/work/zasha/Deutsche-Klasse/Deutsche-Woerter.docx /c/zasha/code/ZashaGermanVocabulary/deutsch-woerter.tsv /c/zasha/code/ZashaGermanVocabulary/deutsch-woerter.html
 
 # put deutsch-woerter.html somewhere on the web.
 # for new GitHub repository, just commit and push respository
