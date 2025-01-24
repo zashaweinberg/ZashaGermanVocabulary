@@ -1,18 +1,23 @@
 
 # under WSL2
-#  python3 /c/zasha/code/ZashaGermanVocabulary/ProcessDeutschWoerter.py --url "http://www.bioinf.uni-leipzig.de/~zasha/deutsch-woerter.html" /c/zasha/work/zasha/Deutsche-Klasse/Deutsche-Woerter.docx /c/zasha/temp-away-from-work/deutsch-woerter.tsv /c/zasha/code/ZashaGermanVocabulary/deutsch-woerter.html
+#  python3 /c/zasha/code/ZashaGermanVocabulary/ProcessDeutschWoerter.py --url "https://raw.githubusercontent.com/zashaweinberg/ZashaGermanVocabulary/refs/heads/main/deutsch-woerter.html" /c/zasha/work/zasha/Deutsche-Klasse/Deutsche-Woerter.docx /c/zasha/code/ZashaGermanVocabulary/deutsch-woerter.tsv /c/zasha/code/ZashaGermanVocabulary/deutsch-woerter.html
 
-# put deutsch-woerter.html somewhere on the web.  If it's under apache, you might need to set the encoding to UTF-8 in the HTTP headers like so, in the .htaccess file for the relevant directory:
-#<Files "deutsch-woerter.html">
-#AddCharset UTF-8 .html
-#</Files>
-# BTW: this doesn't work on Chrome on Windows (it seems to display the file as if it were ASCII), but it does work on the Samsung browser on my phone, so good enough for me.
-# scp /c/zasha/temp-away-from-work/deutsch-woerter.html ahvaz:public_html/
+# put deutsch-woerter.html somewhere on the web.
+# for new GitHub repository, just commit and push respository
+# CAREFUL about pushing changes to deutsch-woerter.html if I'm just playing and don't want to update Anki
 
 # in Windows Anki App (make sure to synchronize the Android App, then the Windows App): Select 'import' (under 'File' menu).  Select the file 'deutsch-woerter.tsv'.  'Fields separated by: Tab' should be selected.  'Update existing notes when first field matches' should be selected.  'Allow HTML in fields' should be checked.  Following should be in effect: 'Field 1 of file is: mapped to Front' and 'Field 2 of file is: mapped to Back'.  Then click 'Import'.
 # delete cards that get duplicated because Anki apparently doesn't notice they're the same.  see Google Doc "Neue-deutsche-Woerter", search for "cemile".
 # Then click 'Sync'
 # In AnkiDroid, While looking at "Stapeln", drag down to synchronize.
+
+# OLD STUFF
+# If it's under apache, you might need to set the encoding to UTF-8 in the HTTP headers like so, in the .htaccess file for the relevant directory:
+#<Files "deutsch-woerter.html">
+#AddCharset UTF-8 .html
+#</Files>
+# BTW: this doesn't work on Chrome on Windows (it seems to display the file as if it were ASCII), but it does work on the Samsung browser on my phone, so good enough for me.
+# scp /c/zasha/temp-away-from-work/deutsch-woerter.html ahvaz:public_html/
 
 import sys
 import csv
