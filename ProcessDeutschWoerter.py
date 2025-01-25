@@ -8,7 +8,7 @@
 # CAREFUL about pushing changes to deutsch-woerter.html if I'm just playing and don't want to update Anki
 
 # in Windows Anki App (make sure to synchronize the Android App, then the Windows App): Select 'import' (under 'File' menu).  Select the file 'deutsch-woerter.tsv'.  'Fields separated by: Tab' should be selected.  'Update existing notes when first field matches' should be selected.  'Allow HTML in fields' should be checked.  Following should be in effect: 'Field 1 of file is: mapped to Front' and 'Field 2 of file is: mapped to Back'.  Then click 'Import'.
-# delete cards that get duplicated because Anki apparently doesn't notice they're the same.  see Google Doc "Neue-deutsche-Woerter", search for "cemile".
+# (wasn't necessary 2025-01, see again) delete cards that get duplicated because Anki apparently doesn't notice they're the same.  see Google Doc "Neue-deutsche-Woerter", search for "cemile".
 # Then click 'Sync'
 # In AnkiDroid, While looking at "Stapeln", drag down to synchronize.
 
