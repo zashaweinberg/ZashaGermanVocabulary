@@ -3,6 +3,9 @@
 #  cd /c/zasha/code/ZashaGermanVocabulary
 #  python3 ProcessDeutschWoerter.py --url https://zashaweinberg.github.io/ZashaGermanVocabulary/deutsch-woerter.html /c/zasha/work/zasha/Deutsche-Klasse/Deutsche-Woerter.docx deutsch-woerter.tsv deutsch-woerter.html
 
+# or for testing changes to the docx file
+# python3 ProcessDeutschWoerter.py --url dummy /c/zasha/work/zasha/Deutsche-Klasse/Deutsche-Woerter.docx test-deutsch-woerter.tsv test-deutsch-woerter.html
+
 # put deutsch-woerter.html somewhere on the web.
 # for new GitHub repository, just commit and push respository
 # CAREFUL about pushing changes to deutsch-woerter.html if I'm just playing and don't want to update Anki
