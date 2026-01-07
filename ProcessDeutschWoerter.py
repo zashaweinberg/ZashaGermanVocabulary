@@ -1,27 +1,10 @@
 
-# under WSL2
-#  cd /c/zasha/code/ZashaGermanVocabulary
-#  python3 ProcessDeutschWoerter.py --url https://zashaweinberg.github.io/ZashaGermanVocabulary/deutsch-woerter.html /c/zasha/work/zasha/Deutsche-Klasse/Deutsche-Woerter.docx deutsch-woerter.tsv deutsch-woerter.html
+# see README.md for more info
 
-# or for testing changes to the docx file
-# python3 ProcessDeutschWoerter.py --url dummy /c/zasha/work/zasha/Deutsche-Klasse/Deutsche-Woerter.docx test-deutsch-woerter.tsv test-deutsch-woerter.html
 
 # put deutsch-woerter.html somewhere on the web.
 # for new GitHub repository, just commit and push respository
 # CAREFUL about pushing changes to deutsch-woerter.html if I'm just playing and don't want to update Anki
-
-# in Windows Anki App (make sure to synchronize the Android App, then the Windows App): Select 'import' (under 'File' menu).  Select the file 'deutsch-woerter.tsv'.  'Fields separated by: Tab' should be selected.  'Update existing notes when first field matches' should be selected.  'Allow HTML in fields' should be checked.  Following should be in effect: 'Field 1 of file is: mapped to Front' and 'Field 2 of file is: mapped to Back'.  Then click 'Import'.
-# (wasn't necessary 2025-01, see again) delete cards that get duplicated because Anki apparently doesn't notice they're the same.  see Google Doc "Neue-deutsche-Woerter", search for "cemile".
-# Then click 'Sync'
-# In AnkiDroid, While looking at "Stapeln", drag down to synchronize.
-
-# OLD STUFF
-# If it's under apache, you might need to set the encoding to UTF-8 in the HTTP headers like so, in the .htaccess file for the relevant directory:
-#<Files "deutsch-woerter.html">
-#AddCharset UTF-8 .html
-#</Files>
-# BTW: this doesn't work on Chrome on Windows (it seems to display the file as if it were ASCII), but it does work on the Samsung browser on my phone, so good enough for me.
-# scp /c/zasha/temp-away-from-work/deutsch-woerter.html ahvaz:public_html/
 
 import sys
 import csv
