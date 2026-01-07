@@ -1,3 +1,6 @@
+Anki: There are duplicates. For example, search for "Einkommen hinnehmen".  sort exported-decks.txt | uniq -c | sort -k 1,1n (I don't know why Anki doesn't get this) Maybe next time I should write a thing to only put in new things. Workflow: you export current cards, and a script compares the exports to the deutsche-woerter.tsv file and gets only the new ones.
+
+
 # ZashaGermanVocabular
 For my personal German practice.
 
