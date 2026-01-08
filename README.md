@@ -1,6 +1,9 @@
-Anki: There are duplicates. For example, search for "Einkommen hinnehmen".  sort exported-decks.txt | uniq -c | sort -k 1,1n (I don't know why Anki doesn't get this) Maybe next time I should write a thing to only put in new things. Workflow: you export current cards, and a script compares the exports to the deutsche-woerter.tsv file and gets only the new ones.
+*** TO DO:
 
-ALSO: ask ChatGPT if it knows why AnkiWeb fails to notice the duplicates -- worth a shot
+- There are duplicates. For example, search for "Einkommen hinnehmen".  sort exported-decks.txt | uniq -c | sort -k 1,1n (I don't know why Anki doesn't get this) Maybe next time I should write a thing to only put in new things. Workflow: you export current cards, and a script compares the exports to the deutsche-woerter.tsv file and gets only the new ones.
+- that doesn't quite work, because the URLs change.  I need to either (1) build up a map (probably tab-delim file) from the relevant information to the href number, or (2) make a hash of that key and store the stable hash.  It'd be nice if the codes don't change now, so that I don't have to update everything and generate more duplicates that I then have to manually kill.  the explicit .tab map would mean that I might be able to capture it, but not sure how easy.
+- the Find Duplicates function works if you select 'front' as the field
+- ask ChatGPT if it knows why AnkiWeb fails to notice the duplicates -- worth a shot
 
 
 # ZashaGermanVocabular
