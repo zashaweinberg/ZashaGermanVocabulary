@@ -77,6 +77,8 @@ def HandleBulletText(cardList,fillInBlankCardList,sentenceSeen,definitionInfoSta
                     raise ValueError("example sentence implausibly short (len=%d), example=\"%s\"\ncurrHtml=%s" % (len(exampleHtml),exampleHtml,currHtml.encode('ascii','backslashreplace')))
                 if len(definitionHtml)<10:
                     raise ValueError("definition stuff implausibly short: %s\ncurrHtml=%s "% (definitionHtml,currHtml.encode('ascii','backslashreplace')))
+                if exampleHtml[0]==" ":
+                    raise ValueError(f"example sentence starts with a space:\nexample=\"{exampleHtml}\"\ncurrHtml=\"{currHtml}\"")
                 
                 definitionStuff=definitionInfoStr
                 if len(definitionStuff)>0:
@@ -224,6 +226,7 @@ parser.add_argument("outFileName", help="output file that can be imported into A
 parser.add_argument("htmlFileName", help="output HTML file for looking things up on the web",type=str)
 parser.add_argument("--url",dest="url",help="URL of the HTML document for looking things up",type=str)
 parser.add_argument("--numChoices",dest="numChoices",help="number of choices to generate for multiple-choice, fill-in-the-blanks",type=int,default=4)
+parser.add_argument("--ankiExport",help="exported file from Anki, to make sure there aren't subtle changes that crept in, like the mysterious added space at the beginning of quotes, that will cause lots more work later. In Anki Windows app: File/Export, Export format = Cards, Include = all decks (default), Include HTML is checked (default).", type=str)
 args = parser.parse_args()
 
 inFileName=args.inFileName
@@ -257,6 +260,16 @@ cardList=[]
 fillInBlankCardList=[]
 definitionInfoStack=[]
 currHtml=""
+
+ankiExportExampleList=[]
+if args.ankiExport:
+    with open(args.ankiExport,"r",encoding="utf-8") as ankiExportFile:
+        for line in ankiExportFile:
+            if line[0]!="#": # ignore comment lines
+                front,back=line.split("\t")
+                if not back:
+                    raise ValueError("line in ankiExport file {args.ankiExport} not complete")
+                ankiExportExampleList.append(front)
 
 with open(htmlFileName,"w",encoding="utf-8") as htmlOut:
     # <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\">
@@ -324,7 +337,17 @@ with open(htmlFileName,"w",encoding="utf-8") as htmlOut:
     #print(allBlankList)
     uppercaseBlankList=[x for x in allBlankList if x[0].isupper()]
     lowercaseBlankList=[x for x in allBlankList if x[0].islower()]
-    
+
+    if args.ankiExport:
+        # check if there are sentences in ankiExport that we didn't see (i.e. are not in sentenceSeen), which would mean that somethings wrong.  Somehow the sentence changed
+        orphanSentenceList=[]
+        for ankiExample in ankiExportExampleList:
+            if ankiExample not in sentenceSeen:
+                orphanSentenceList.append(ankiExample)
+        if orphanSentenceList:
+            orphanSentenceListStr="\n".join(orphanSentenceList)
+            raise ValueError(f"--ankiExport: the following {len(orphanSentenceList)} example sentences are in the ankiExport file, but are not in the current file:\n{orphanSentenceListStr}\n\nthose were {len(orphanSentenceList)} example sentences in ankiExport, but not in the current file\nThings to check for: (1) there's an extra space at the beginning or end of the sentence, (2) the umlauts were done with composing characters (umlaut+u), instead of the actual character (einfach ü), in which case you can try deleting an re-typing all umlauts in the example sentence")
+            
     # output fill-in-the-blank data
     # not yet implemented
     # need to do something so that the sentences are consistent, otherwise every time I generate it, it'll get different random distractors
